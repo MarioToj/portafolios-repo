@@ -1,0 +1,53 @@
+<div class="flex justify-center items-center">
+
+      @if (products()) {
+        <div class="carousel relative overflow-hidden w-3/6">
+          <div class="carousel-inner flex transition-transform duration-500" [ngStyle]="{'transform': 'translateX(-' + currentIndex * 100 + '%)'}">
+        @for (prod of products(); track $index) {
+        <div class="carousel-item min-w-full bg-white text-black text-center py-20">
+            <div class="flex justify-center items-center flex-col">
+              <img [src]="prod.image" [alt]="prod.title">
+              <span class="my-2">{{ prod.title }}</span>
+              <span class="my-2">Precio: ${{ prod.price }}</span>
+              <button [routerLink]="['/dashboard/api', prod.id]" class="bg-gray-800 text-white px-4 py-2">ver detalle</button>
+            </div>
+          </div>
+        }
+      </div>
+      <button (click)="prevSlide()" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2">Prev</button>
+      <button (click)="nextSlide()" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2">Next</button>
+    </div>
+      } @else if(projects()) {
+        
+        <div class="carousel relative overflow-hidden w-full">
+          <div class="carousel-inner flex transition-transform duration-500" [ngStyle]="{'transform': 'translateX(-' + currentIndex * 100 + '%)'}">
+
+        @for (prod of projects(); track $index) {
+          <div class="carousel-item min-w-full bg-gradient-to-l from-blue-900 to-violet-900 text-gray-400">
+              <div class="flex justify-center items-center flex-col">
+                <img [src]="prod.img" [alt]="prod.name">
+              </div>
+              <div class="flex flex-col border-2 md:p-5 border-gray-400 rounded-md p-2 h-50 mt-16">
+                <span class="font-bold">{{ prod.name }}</span>
+                <span class="my-2">{{ prod.desc }}</span>
+                <div class="flex justify-between">
+                  <ul class="flex">
+                    <h1>Tecnologías: </h1>
+                      @for (iconItem of prod.logos; track $index) {
+                        <li class="mx-2"><i [ngClass]="[iconItem]"></i></li>
+                      }
+    
+                    </ul>
+                    <a class="border-2 rounded-md p-2 hover:opacity-5 transition-all" [href]="prod.link" target="_blank">Ver projecto</a>
+                </div>
+              </div>
+            </div>
+          }
+
+        </div>
+        <button (click)="prevSlideProject()" class="absolute left-0 top-1/2 transform -translate-y-1/2 border-2 border-slate-600 rounded-md bg-gradient-to-r from-sky-900 to-indigo-900 text-white px-4 py-2">Prev</button>
+        <button (click)="nextSlideProject()" class="absolute right-0 top-1/2 transform -translate-y-1/2 border-2 border-slate-600 rounded-md bg-gradient-to-r from-sky-900 to-indigo-900 text-white px-4 py-2">Next</button>
+      </div>
+      }
+    
+</div>
