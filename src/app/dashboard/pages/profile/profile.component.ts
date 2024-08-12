@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { CarouselComponent } from '../../../shared/components/carousel/carousel.component';
@@ -16,7 +15,7 @@ import { FormComponent } from '../../../shared/components/form/form.component';
   templateUrl: './profile.component.html',
   styles:`
     img {
-      object-fit: contain;
+      object-fit: contain;    
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -27,12 +26,45 @@ export default class ProfileComponent {
     { name: 'About', id: 'about'},
     { name: 'Projects', id: 'projects'},
     { name: 'Habilities', id: 'habilties'},
-    { name: 'Contacto', id: 'contact'},
+    { name: 'Contact', id: 'contact'},
+  ]
+
+  public footerItems = [
+    { id: 1, name: 'Gmail',
+      link: '/cvProgra.pdf',
+      download: 'download',
+      img: 'https://cdn0.iconfinder.com/data/icons/job-resume-1/665/7-_Download_Resume-512.png'},
+    { id: 1, name: 'LinkedIn',
+      download: '',
+      link: 'https://www.linkedin.com/in/mario-toj-alvarez/',
+      img: 'https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png'},
+    { id: 1, name: 'GitHub',
+      download: '',
+      link: 'https://github.com/MarioToj',
+      img: 'https://cdn-icons-png.flaticon.com/512/25/25231.png'},
+    { id: 1, name: 'Gmail',
+      link: '',
+      download: '',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/1200px-Gmail_icon_%282020%29.svg.png'},
   ]
 
   public projects = signal<Project[]>([
     {  
       id: 1,
+      name: 'Rocksauce',
+      img: 'https://yt3.googleusercontent.com/ytc/AIdro_k-yWTreNkQauy990r2GYZQGWktJDKUKYPZM_UmcktFmlI=s900-c-k-c0x00ffffff-no-rj',
+      desc: 'Es un proyecto freelance desarrollado con Wordpress y Divi Builder, siguiendo diseños hechos en figma.',
+      logos: ['devicon-wordpress-plain', 'devicon-php-plain colored', 'devicon-css3-plain colored', 'devicon-javascript-plain colored']
+    },
+    {  
+      id: 2,
+      name: 'NTRINSEC',
+      img: 'https://yt3.googleusercontent.com/ieSVb6XQYR32aFdltcodR7o0g1RCGjdm4L8ste2QbWwLqlWWIfqoS_NS6_5L7BdTzQGUvvUwzw=s900-c-k-c0x00ffffff-no-rj',
+      desc: 'Es un proyecto freelance desarrollado con Wordpress y elementor, siguiendo diseños hechos en figma.',
+      logos: ['devicon-wordpress-plain', 'devicon-php-plain colored', 'devicon-css3-plain colored', 'devicon-javascript-plain colored']
+    },
+    {  
+      id: 3,
       name: 'Maps App',
       img: 'https://www.mappng.com/png-world-maps/2021-07-03216high-detail-color-world-map.png',
       desc: 'Un proyecto personal desarrollado principalmente con Angular, consume una Api, donde podemos buscar paises, regiones y continentes.',
@@ -40,13 +72,13 @@ export default class ProfileComponent {
       logos: ['devicon-angularjs-plain colored', 'devicon-rxjs-plain colored', 'devicon-bootstrap-plain-wordmark colored']
     },
     {  
-      id: 2,
-      name: 'Maps App',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT950I0RMCF6fa_Vdg299jAkYN0CfPRcmNP9A&s',
-      desc: 'Un proyecto personal desarrollado con Angular, Rxjs, Servicios y bootstrap',
-      link: 'https://stately-longma-e941fb.netlify.app/countries/by-capital',
-      logos: ['devicon-angularjs-plain colored', 'devicon-rxjs-plain colored', 'devicon-bootstrap-plain-wordmark colored']
-    }
+      id: 4,
+      name: 'Dashboard de usuarios',
+      img: 'https://www.itsolutionstuff.com/upload/laravel-8-inertia-js-crud-index.png',
+      desc: 'Un proyecto de la universidad hecho con PHP, MySQL y Boostrap, arquitectura MVC, en esta aplicacion podemos gestionar a nuestros usuarios, sus roles y ver sus detalles.',
+      link: 'https://php-users-production.up.railway.app',
+      logos: ['devicon-php-plain colored', 'devicon-css3-plain colored', 'devicon-javascript-plain colored', 'devicon-bootstrap-plain-wordmark colored']
+    },
   ]);
 
   public tecno = signal<Tecnology[]>([
@@ -108,16 +140,38 @@ export default class ProfileComponent {
   ])
 
   scrollToSection(id: string) {
-    const navbarHeight = document.querySelector('.shadow')?.clientHeight || 0;
-    const additionalOffset = 300; 
-  
     const element = document.getElementById(id);
-    if (element) {
+
+
+    if (element?.id == "about") {
       window.scrollTo({
-        top: element.offsetTop - navbarHeight - additionalOffset,
+        top: element.offsetTop - 364,
+        behavior: 'smooth'
+      });
+    } else if(element?.id == "habilties") {
+      window.scrollTo({
+        top: element.offsetTop - 94,
+        behavior: 'smooth'
+      });
+    } else if(element?.id == "contact") {
+      window.scrollTo({
+        top: element.offsetTop - 94,
+        behavior: 'smooth'
+      });
+    } else {
+      window.scrollTo({
+        top: element!.offsetTop - 272,
         behavior: 'smooth'
       });
     }
   }
+
+  downloadCV() {
+    const link = document.createElement('a');
+    link.href = 'assets/cvProgra.pdf';  
+    link.download = 'cvProgra.pdf';  
+    link.click();
+  }
+  
   
 }

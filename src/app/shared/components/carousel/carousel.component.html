@@ -1,4 +1,3 @@
-<div class="flex justify-center items-center">
 
       @if (products()) {
         <div class="carousel relative overflow-hidden w-3/6">
@@ -23,9 +22,9 @@
           <div class="carousel-inner flex transition-transform duration-500" [ngStyle]="{'transform': 'translateX(-' + currentIndex * 100 + '%)'}">
 
         @for (prod of projects(); track $index) {
-          <div class="carousel-item min-w-full bg-gradient-to-l from-blue-900 to-violet-900 text-gray-400">
+          <div class="carousel-item min-w-full bg-inherit text-gray-400">
               <div class="flex justify-center items-center flex-col">
-                <img [src]="prod.img" [alt]="prod.name">
+                <img class="rounded-md" [src]="prod.img" [alt]="prod.name">
               </div>
               <div class="flex flex-col border-2 md:p-5 border-gray-400 rounded-md p-2 h-50 mt-16">
                 <span class="font-bold">{{ prod.name }}</span>
@@ -38,16 +37,19 @@
                       }
     
                     </ul>
-                    <a class="border-2 rounded-md p-2 hover:opacity-5 transition-all" [href]="prod.link" target="_blank">Ver projecto</a>
+                    @if (prod.link) {
+                      <a class="border-2 rounded-md p-2 hover:opacity-5 transition-all" [href]="prod.link" target="_blank">Ver projecto</a>
+                    } @else {
+                      <span class="text-red-600">Proyecto no disponible</span>
+                    }
                 </div>
               </div>
             </div>
           }
 
         </div>
-        <button (click)="prevSlideProject()" class="absolute left-0 top-1/2 transform -translate-y-1/2 border-2 border-slate-600 rounded-md bg-gradient-to-r from-sky-900 to-indigo-900 text-white px-4 py-2">Prev</button>
-        <button (click)="nextSlideProject()" class="absolute right-0 top-1/2 transform -translate-y-1/2 border-2 border-slate-600 rounded-md bg-gradient-to-r from-sky-900 to-indigo-900 text-white px-4 py-2">Next</button>
+        <button (click)="prevSlideProject()" class="absolute left-0 top-1/2 transform -translate-y-1/2 border-2 border-slate-600 rounded-md hover:bg-gradient-to-r from-green-900 to-green-800 text-white px-4 py-2">Prev</button>
+        <button (click)="nextSlideProject()" class="absolute right-0 top-1/2 transform -translate-y-1/2 border-2 border-slate-600 rounded-md hover:bg-gradient-to-r from-green-800 to-green-900 text-white px-4 py-2">Next</button>
       </div>
       }
     
-</div>

@@ -4,6 +4,7 @@ export interface Project {
     name: string,
     img: string,
     desc: string,
-    link: string,
-    logos: string[]
+    link?: string,
+    logos: string[],
+    tooltip?: string,
 }
