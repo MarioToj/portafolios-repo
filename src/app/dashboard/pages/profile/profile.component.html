@@ -1,77 +1,98 @@
-<div class="shadow fixed top-0 left-0 w-full bg-gray z-10 text-gray-400">
+<div class="shadow fixed top-0 left-0 w-full bg-gray z-10 text-orange-500 font-bold">
     <div class="h-16 mx-auto px-5 flex items-center justify-between ">
         <img width="60" height="60" src="https://uploads-ssl.webflow.com/623d1b71a3a9ee00f7cfc5e3/650c457cfb5f47612ec754c9_624d9130b140ab06f3268274_Logo-head.png" alt="logoimg">
-        
+
+
         <ul class="flex items-center gap-5">
+
+            <button
+            (click)="downloadCV()"
+            class="relative text-center h-fit w-fit transition-all duration-500
+            before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-zinc-400 before:transition-all
+            before:duration-300 before:opacity-10 before:hover:opacity-0 before:hover:scale-50
+            after:absolute after:top-0 after:left-0 after:w-full after:h-full after:opacity-0 after:transition-all after:duration-300
+            after:border after:border-white/50 after:scale-125 after:hover:opacity-100 after:hover:scale-100" 
+        >
+            <span class="relative text-white uppercase font-thin">Descargar CV</span>
+        </button>
+
             @for (item of navItems; track $index) {
                 
-                <li><button class="hover:text-cyan-500 transition-colors" (click)="scrollToSection(item.id)">{{ item.name }}</button></li>
+                <li><button 
+                    (click)="scrollToSection(item.id)"
+                    class="relative text-center h-fit w-fit transition-all duration-500
+                    before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-zinc-400 before:transition-all
+                    before:duration-300 before:opacity-10 before:hover:opacity-0 before:hover:scale-50
+                    after:absolute after:top-0 after:left-0 after:w-full after:h-full after:opacity-0 after:transition-all after:duration-300
+                    after:border after:border-white/50 after:scale-125 after:hover:opacity-100 after:hover:scale-100"
+
+                    ><span class="relative text-orange-500 uppercase font-thin">{{ item.name }}</span></button></li>
             } 
         </ul>
     </div>
 </div>
-<div class="flex flex-col items-center justify-center gap-8 h-screen">
+<div class="relative h-screen bg-cover" style="background-image: url('assets/hero-image.jpg');">
+    <!-- <img src="assets/hero-image.jpg" alt="Hero Image" class="object-cover w-full h-full"> -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+    <div class="absolute bottom-0 p-6">
+        <section id="about" class="flex justify-center flex-col w-3/5 p-8 shadow-green-300-diffuse text-orange-500">
+            <h2 class="text-3xl">Hola Soy</h2>
+            <br>
+            <p class="text-4xl font-bold pb-4">Mario Enrique Toj</p>
+            <p class="text-xl">Bienvenido a mi portafolio. Soy un desarrollador apasionado y 
+              autodidacta con experiencia en maquetación y desarrollo web. 
+              Mi trayectoria profesional se ha centrado en la interpretación 
+              de diseños y su transformación en interfaces web funcionales y 
+              responsivas. <br> trabajado con diversas tecnologías y herramientas, 
+              lo que me permite adaptarme a diferentes proyectos y retos.
+              Gracias por visitar mi portafolio. Espero que disfrutes 
+              explorando mis trabajos y que podamos colaborar en un futuro cercano.</p>
+          </section>
+    </div>
+</div>
+
+<div class="flex items-center justify-center h-screen bg-black">
     
-    <section id="about" class="py-20  justify-center bg-green-950 text-white w-2/3 p-4 rounded-md shadow-green-300-diffuse">
-      <h2 class="text-4xl">Hola Soy</h2>
-      <p class="text-xl font-bold pb-4">Mario Enrique Toj</p>
-      <p>Bienvenido a mi portafolio. Soy un desarrollador apasionado y 
-        autodidacta con experiencia en maquetación y desarrollo web. 
-        Mi trayectoria profesional se ha centrado en la interpretación 
-        de diseños y su transformación en interfaces web funcionales y 
-        responsivas. <br> trabajado con diversas tecnologías y herramientas, 
-        lo que me permite adaptarme a diferentes proyectos y retos.
-        Gracias por visitar mi portafolio. Espero que disfrutes 
-        explorando mis trabajos y que podamos colaborar en un futuro cercano.</p>
-         <i class="devicon-javascript-plain colored"></i>
-    </section>
-
-
-</div>    
-
-<div class="flex items-center justify-center my-auto h-screen">
-    
-    <section id="projects" class="py-20 bg-green-950 shadow-green-300-diffuse text-white xl:w-2/6 md:w-3/6 p-4 rounded-md justify-center">
+    <section id="projects" class="w-4/5 h-1/2 xl:h-2/3 hover:shadow-custom hover:shadow-orange-500 hover:transition-all duration-300 text-gray-900 justify-center">
      <app-carousel [projects]="projects()"/>
     </section>
 
 
 </div>    
 
-<div class="flex flex-col items-center justify-center gap-8 h-fit">
+<div class="flex flex-col items-center justify-center gap-8 h-screen bg-black">
     
-    <section id="habilties" class="py-10 bg-green-950 shadow-green-300-diffuse text-white w-2/3 p-4 rounded-md flex items-center justify-center flex-wrap gap-4">
+    <section id="habilties" class="py-20 text-gray-900 h-auto p-4 flex items-center justify-center flex-wrap gap-4 w-full">
+
+        
         @for (tec of tecno(); track $index) {
-            <div class="flex justify-center items-center flex-col w-60 h-72 border-2 border-gray-400 rounded-md p-4 hover:bg-gradient-to-l from-green-900 to-green-800 transition-transform transform hover:scale-105 hover:shadow-xl">
-                <h1 class="font-bold">{{ tec.name }}</h1>
-                <div class="flex w-full h-36">
-                    <img class="w-full" [src]="tec.img" alt="">
+                <div class="flex flex-row items-center justify-center mx-1 bg-blend-saturation border-4 border-orange-500 p-2 w-36 h-28 hover:scale-110 hover:shadow-seco hover:shadow-orange-500 hover:transition-all duration-300">
+                    <span class="pr-1 text-orange-500 font-thin">{{ tec.name}}</span>
+                    <span><img width="100" height="100" [src]="tec.img" [alt]="tec.name"></span>
                 </div>
-            </div>
-        }
+            }
     </section>
 
 
 </div>    
 
-<div class="flex flex-col items-center justify-center h-screen">
+<div id="contact"  class="relative flex flex-row items-center justify-evenly bg-cover text-gray-900 h-fit px-20" style="background-image: url('assets/hero-image.jpg');">
     
-    <section id="contact" class="py-20 bg-green-950 shadow-green-300-diffuse text-white xl:w-2/6 md:w-3/6 p-4 rounded-md">
+    <div class="absolute inset-0 bg-gradient-to-b from-black to-transparent"></div>
+
+    <div class="flex flex-col items-center gap-16 z-10">
+        <a target="_blank" href="https://www.linkedin.com/in/mario-toj-alvarez/">
+            <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png" alt="LinkedIn" width="50" height="50">
+        </a>
+        <a target="_blank" href="https://github.com/MarioToj">
+            <img src="assets/githubb.png" alt="GitHub" width="50" height="50">
+        </a>
+        <a target="_blank" href="mailto:etalverez03@gmail.com">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/1200px-Gmail_icon_%282020%29.svg.png" alt="Gmail" width="50" height="50">
+        </a>
+    </div>
+    
+    <section class="text-white xl:w-2/6 md:w-3/6 p-4 z-10">
       <app-form />
     </section>
-    
 </div>
-<hr class="text-white mx-2" />
-  <footer class="bg-green-950 pb-5">
-  <div class="max-w-screen-xl px-4 pt-2 mx-auto sm:px-6 lg:px-8">
-    <div class="sm:flex sm:items-center sm:justify-between">
-      <div class="flex justify-center text-teal-300 sm:justify-start">
-      </div>
-      <button class="text-white font-semibold  shadow-green-300-diffuse rounded-md p-2 hover:text-gray-400 hover:transition-all" (click)="downloadCV()">Descargar CV</button>
-      <a target="_blank" href="https://www.linkedin.com/in/mario-toj-alvarez/"><img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png" alt="" width="35" height="35"></a>
-      <a target="_blank" href="https://github.com/MarioToj"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" width="35" height="35"></a>
-      <a target="_blank" href="mailto:etalverez03@gmail.com"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/1200px-Gmail_icon_%282020%29.svg.png" alt="" width="35" height="35"></a>
-    </div>
-  </div>
-</footer>
-

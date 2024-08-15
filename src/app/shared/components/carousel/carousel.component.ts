@@ -12,12 +12,7 @@ import { Project } from '../../../interfaces/project.interface';
   ],
   templateUrl: './carousel.component.html',
   styles: `
-    img {
-      width: 200px; 
-      height: 200px;
-    }
-    .bottom-full{bottom: 100%}
-    .top-full{top: 100%}
+
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

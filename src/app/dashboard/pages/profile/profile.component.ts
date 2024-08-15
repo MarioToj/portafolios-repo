@@ -5,6 +5,7 @@ import { CarouselComponent } from '../../../shared/components/carousel/carousel.
 import { Tecnology } from '../../../interfaces/tecnologia.interface';
 import { Project } from '../../../interfaces/project.interface';
 import { FormComponent } from '../../../shared/components/form/form.component';
+import { fromEvent, map, tap } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -22,11 +23,41 @@ import { FormComponent } from '../../../shared/components/form/form.component';
 })
 export default class ProfileComponent {
 
+      constructor() {
+      const body = document.body;
+
+      // Crear barra de progreso
+      const progressBar = document.createElement('div');
+      progressBar.setAttribute('class', 'progress-bar');
+      body.append(progressBar);
+
+      // Función que hace el cálculo del porcentaje de scroll
+      const calcularPorcentajeScroll = (event: Event) => {
+        const { clientHeight, scrollTop, scrollHeight } = document.documentElement;
+
+        return (scrollTop / (scrollHeight - clientHeight)) * 100;
+      };
+
+      // Streams
+      const scroll$ = fromEvent<Event>(document, 'scroll');
+
+      const progress$ = scroll$.pipe(
+        map(event => calcularPorcentajeScroll(event)),
+        tap(console.log)
+      );
+
+      progress$.subscribe(val => {
+        progressBar.style.width = `${val}%`;
+      });
+
+}
+  
+
   public navItems = [
-    { name: 'About', id: 'about'},
-    { name: 'Projects', id: 'projects'},
-    { name: 'Habilities', id: 'habilties'},
-    { name: 'Contact', id: 'contact'},
+    { name: 'Sobre Mí', id: 'about'},
+    { name: 'Proyectos', id: 'projects'},
+    { name: 'Habilidades', id: 'habilties'},
+    { name: 'Contacto', id: 'contact'},
   ]
 
   public footerItems = [
@@ -52,21 +83,21 @@ export default class ProfileComponent {
     {  
       id: 1,
       name: 'Rocksauce',
-      img: 'https://yt3.googleusercontent.com/ytc/AIdro_k-yWTreNkQauy990r2GYZQGWktJDKUKYPZM_UmcktFmlI=s900-c-k-c0x00ffffff-no-rj',
+      img: 'assets/rocksauceImg.png',
       desc: 'Es un proyecto freelance desarrollado con Wordpress y Divi Builder, siguiendo diseños hechos en figma.',
       logos: ['devicon-wordpress-plain', 'devicon-php-plain colored', 'devicon-css3-plain colored', 'devicon-javascript-plain colored']
     },
     {  
       id: 2,
       name: 'NTRINSEC',
-      img: 'https://yt3.googleusercontent.com/ieSVb6XQYR32aFdltcodR7o0g1RCGjdm4L8ste2QbWwLqlWWIfqoS_NS6_5L7BdTzQGUvvUwzw=s900-c-k-c0x00ffffff-no-rj',
+      img: 'assets/rezised.png',
       desc: 'Es un proyecto freelance desarrollado con Wordpress y elementor, siguiendo diseños hechos en figma.',
       logos: ['devicon-wordpress-plain', 'devicon-php-plain colored', 'devicon-css3-plain colored', 'devicon-javascript-plain colored']
     },
     {  
       id: 3,
       name: 'Maps App',
-      img: 'https://www.mappng.com/png-world-maps/2021-07-03216high-detail-color-world-map.png',
+      img: 'assets/paises.png',
       desc: 'Un proyecto personal desarrollado principalmente con Angular, consume una Api, donde podemos buscar paises, regiones y continentes.',
       link: 'https://stately-longma-e941fb.netlify.app/countries/by-capital',
       logos: ['devicon-angularjs-plain colored', 'devicon-rxjs-plain colored', 'devicon-bootstrap-plain-wordmark colored']
@@ -74,7 +105,7 @@ export default class ProfileComponent {
     {  
       id: 4,
       name: 'Dashboard de usuarios',
-      img: 'https://www.itsolutionstuff.com/upload/laravel-8-inertia-js-crud-index.png',
+      img: 'assets/crudUsuarios.png',
       desc: 'Un proyecto de la universidad hecho con PHP, MySQL y Boostrap, arquitectura MVC, en esta aplicacion podemos gestionar a nuestros usuarios, sus roles y ver sus detalles.',
       link: 'https://php-users-production.up.railway.app',
       logos: ['devicon-php-plain colored', 'devicon-css3-plain colored', 'devicon-javascript-plain colored', 'devicon-bootstrap-plain-wordmark colored']
@@ -150,15 +181,16 @@ export default class ProfileComponent {
       });
     } else if(element?.id == "habilties") {
       window.scrollTo({
-        top: element.offsetTop - 94,
+        top: element.offsetTop - 380,
         behavior: 'smooth'
       });
     } else if(element?.id == "contact") {
       window.scrollTo({
-        top: element.offsetTop - 94,
+        top: element.offsetTop,
         behavior: 'smooth'
       });
-    } else {
+    }
+     else {
       window.scrollTo({
         top: element!.offsetTop - 272,
         behavior: 'smooth'

@@ -6,8 +6,12 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-       'green-300-diffuse': '0 10px 15px -3px rgba(110, 231, 183, 0.3), 0 4px 6px -2px rgba(110, 231, 183, 0.1)',
-      }
+       'custom': '4px 6px 11px -1px rgba(0, 0, 0, 0.40)',
+       'seco': ' 4px 6px 3px 0px rgba(0,0,0,1)',
+      }, 
+      colors: {
+        yellow: '#FFD700',
+      },
     },
   },
   plugins: [],
