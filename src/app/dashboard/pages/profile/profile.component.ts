@@ -43,7 +43,6 @@ export default class ProfileComponent {
 
       const progress$ = scroll$.pipe(
         map(event => calcularPorcentajeScroll(event)),
-        tap(console.log)
       );
 
       progress$.subscribe(val => {

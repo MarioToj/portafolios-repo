@@ -1,9 +1,11 @@
-<div class="shadow fixed top-0 left-0 w-full bg-gray z-10 text-orange-500 font-bold">
+
+
+<div class="shadow fixed top-0 left-0 xl:w-full bg-gray z-10 text-orange-500 font-bold">
     <div class="h-16 mx-auto px-5 flex items-center justify-between ">
-        <img width="60" height="60" src="https://uploads-ssl.webflow.com/623d1b71a3a9ee00f7cfc5e3/650c457cfb5f47612ec754c9_624d9130b140ab06f3268274_Logo-head.png" alt="logoimg">
+        <img class="max-[668px]:hidden" width="60" height="60" src="https://uploads-ssl.webflow.com/623d1b71a3a9ee00f7cfc5e3/650c457cfb5f47612ec754c9_624d9130b140ab06f3268274_Logo-head.png" alt="logoimg">
 
 
-        <ul class="flex items-center gap-5">
+        <ul class="flex items-center gap-5 min-[320px]:flex-wrap mt-8">
 
             <button
             (click)="downloadCV()"
@@ -24,7 +26,7 @@
                     before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-zinc-400 before:transition-all
                     before:duration-300 before:opacity-10 before:hover:opacity-0 before:hover:scale-50
                     after:absolute after:top-0 after:left-0 after:w-full after:h-full after:opacity-0 after:transition-all after:duration-300
-                    after:border after:border-white/50 after:scale-125 after:hover:opacity-100 after:hover:scale-100"
+                    after:border after:border-white/50 after:scale-125 after:hover:opacity-100 after:hover:scale-100 xl:text-xl min-[320px]:text-sm"
 
                     ><span class="relative text-orange-500 uppercase font-thin">{{ item.name }}</span></button></li>
             } 
@@ -35,7 +37,9 @@
     <!-- <img src="assets/hero-image.jpg" alt="Hero Image" class="object-cover w-full h-full"> -->
     <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
     <div class="absolute bottom-0 p-6">
-        <section id="about" class="flex justify-center flex-col w-3/5 p-8 shadow-green-300-diffuse text-orange-500">
+        <section id="about" class="flex justify-center flex-col w-fit p-8 shadow-green-300-diffuse text-orange-500">
+            <div class="xl:w-2/3 sm:w-fit">
+
             <h2 class="text-3xl">Hola Soy</h2>
             <br>
             <p class="text-4xl font-bold pb-4">Mario Enrique Toj</p>
@@ -47,6 +51,8 @@
               lo que me permite adaptarme a diferentes proyectos y retos.
               Gracias por visitar mi portafolio. Espero que disfrutes 
               explorando mis trabajos y que podamos colaborar en un futuro cercano.</p>
+
+            </div>
           </section>
     </div>
 </div>
@@ -76,11 +82,11 @@
 
 </div>    
 
-<div id="contact"  class="relative flex flex-row items-center justify-evenly bg-cover text-gray-900 h-fit px-20" style="background-image: url('assets/hero-image.jpg');">
+<div id="contact"  class="relative flex xl:flex-row items-center justify-evenly min-[320px]:flex-col-reverse bg-cover text-gray-900 h-fit px-20" style="background-image: url('assets/hero-image.jpg');">
     
     <div class="absolute inset-0 bg-gradient-to-b from-black to-transparent"></div>
 
-    <div class="flex flex-col items-center gap-16 z-10">
+    <div class="flex xl:flex-col items-center gap-16 z-10 min-[320px]:flex-row">
         <a target="_blank" href="https://www.linkedin.com/in/mario-toj-alvarez/">
             <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png" alt="LinkedIn" width="50" height="50">
         </a>
@@ -92,7 +98,8 @@
         </a>
     </div>
     
-    <section class="text-white xl:w-2/6 md:w-3/6 p-4 z-10">
+    <section class="text-white xl:w-2/6 md:w-3/6 p-4 z-10 mb-3">
       <app-form />
     </section>
 </div>
+
