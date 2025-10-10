@@ -95,6 +95,14 @@ export default class ProfileComponent {
     },
     {  
       id: 3,
+      name: 'GitHub Issues',
+      img: 'assets/gitgubissues.png',
+      desc: 'Un proyecto web construido con Angular moderno que consume la API de GitHub Issues para visualizar y gestionar reportes en tiempo real. Utiliza TanStack Query para manejar el estado de los datos, caché y sincronización eficiente, ofreciendo una experiencia rápida y reactiva tanto en navegación como en actualizaciones.',
+      link: 'https://guileless-cannoli-cec4e0.netlify.app/issues',
+      logos: ['devicon-angularjs-plain', 'devicon-tailwindcss-plain']
+    },
+    {  
+      id: 4,
       name: 'Maps App',
       img: 'assets/paises.png',
       desc: 'Un proyecto personal desarrollado principalmente con Angular, consume una Api, donde podemos buscar paises, regiones y continentes.',
@@ -102,7 +110,7 @@ export default class ProfileComponent {
       logos: ['devicon-angularjs-plain colored', 'devicon-rxjs-plain colored', 'devicon-bootstrap-plain-wordmark colored']
     },
     {  
-      id: 4,
+      id: 5,
       name: 'Dashboard de usuarios',
       img: 'assets/crudUsuarios.png',
       desc: 'Un proyecto de la universidad hecho con PHP, MySQL y Boostrap, arquitectura MVC, en esta aplicacion podemos gestionar a nuestros usuarios, sus roles y ver sus detalles.',
