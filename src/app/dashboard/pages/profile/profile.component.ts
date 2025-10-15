@@ -64,15 +64,15 @@ export default class ProfileComponent {
       link: '/cvProgra.pdf',
       download: 'download',
       img: 'https://cdn0.iconfinder.com/data/icons/job-resume-1/665/7-_Download_Resume-512.png'},
-    { id: 1, name: 'LinkedIn',
+    { id: 2, name: 'LinkedIn',
       download: '',
       link: 'https://www.linkedin.com/in/mario-toj-alvarez/',
       img: 'https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png'},
-    { id: 1, name: 'GitHub',
+    { id: 3, name: 'GitHub',
       download: '',
       link: 'https://github.com/MarioToj',
       img: 'https://cdn-icons-png.flaticon.com/512/25/25231.png'},
-    { id: 1, name: 'Gmail',
+    { id: 4, name: 'Gmail',
       link: '',
       download: '',
       img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/1200px-Gmail_icon_%282020%29.svg.png'},
@@ -99,10 +99,18 @@ export default class ProfileComponent {
       img: 'assets/gitgubissues.png',
       desc: 'Un proyecto web construido con Angular moderno que consume la API de GitHub Issues para visualizar y gestionar reportes en tiempo real. Utiliza TanStack Query para manejar el estado de los datos, caché y sincronización eficiente, ofreciendo una experiencia rápida y reactiva tanto en navegación como en actualizaciones.',
       link: 'https://guileless-cannoli-cec4e0.netlify.app/issues',
-      logos: ['devicon-angularjs-plain', 'devicon-tailwindcss-plain']
+      logos: ['devicon-angularjs-plain colored', 'devicon-tailwindcss-plain colored']
     },
     {  
       id: 4,
+      name: 'Gif App React Version',
+      img: 'assets/gifAppReact.png',
+      desc: 'Aplicación React que consume la API de Giphy usando Axios, con lógica encapsulada en Custom Hooks y estructura modular basada en componentes. Implementa Hooks para el manejo de estado y efectos, siguiendo principios de separación de responsabilidades para un código limpio y escalable.',
+      link: 'https://gif-app-reactt.netlify.app/',
+      logos: ['devicon-react-original colored']
+    },
+    {  
+      id: 5,
       name: 'Maps App',
       img: 'assets/paises.png',
       desc: 'Un proyecto personal desarrollado principalmente con Angular, consume una Api, donde podemos buscar paises, regiones y continentes.',
@@ -110,7 +118,7 @@ export default class ProfileComponent {
       logos: ['devicon-angularjs-plain colored', 'devicon-rxjs-plain colored', 'devicon-bootstrap-plain-wordmark colored']
     },
     {  
-      id: 5,
+      id: 6,
       name: 'Dashboard de usuarios',
       img: 'assets/crudUsuarios.png',
       desc: 'Un proyecto de la universidad hecho con PHP, MySQL y Boostrap, arquitectura MVC, en esta aplicacion podemos gestionar a nuestros usuarios, sus roles y ver sus detalles.',
