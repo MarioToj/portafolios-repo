@@ -103,6 +103,14 @@ export default class ProfileComponent {
     },
     {  
       id: 4,
+      name: 'Gif App Angular Version',
+      img: 'assets/angularGifs.png',
+      desc: 'Aplicación web desarrollada con Angular moderno que consume la API de Giphy para mostrar GIFs en tendencia y permitir búsquedas personalizadas. Utiliza RxJS para manejar las peticiones HTTP de forma reactiva, sin mencionar operadores específicos. El proyecto está estructurado en componentes y servicios bien definidos, distribuyendo responsabilidades como la lógica de búsqueda, el historial y la visualización de resultados.',
+      link: 'https://papaya-scone-2b139b.netlify.app/dashboard/search',
+      logos: ['devicon-angularjs-plain colored', 'devicon-tailwindcss-plain colored', 'devicon-rxjs-plain colored']
+    },
+    {  
+      id: 5,
       name: 'Gif App React Version',
       img: 'assets/gifAppReact.png',
       desc: 'Aplicación React que consume la API de Giphy usando Axios, con lógica encapsulada en Custom Hooks y estructura modular basada en componentes. Implementa Hooks para el manejo de estado y efectos, siguiendo principios de separación de responsabilidades para un código limpio y escalable.',
@@ -110,7 +118,7 @@ export default class ProfileComponent {
       logos: ['devicon-react-original colored']
     },
     {  
-      id: 5,
+      id: 6,
       name: 'Maps App',
       img: 'assets/paises.png',
       desc: 'Un proyecto personal desarrollado principalmente con Angular, consume una Api, donde podemos buscar paises, regiones y continentes.',
@@ -118,7 +126,7 @@ export default class ProfileComponent {
       logos: ['devicon-angularjs-plain colored', 'devicon-rxjs-plain colored', 'devicon-bootstrap-plain-wordmark colored']
     },
     {  
-      id: 6,
+      id: 7,
       name: 'Dashboard de usuarios',
       img: 'assets/crudUsuarios.png',
       desc: 'Un proyecto de la universidad hecho con PHP, MySQL y Boostrap, arquitectura MVC, en esta aplicacion podemos gestionar a nuestros usuarios, sus roles y ver sus detalles.',
